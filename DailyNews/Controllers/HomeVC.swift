@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.customizeUI()
-            self.loadArticles(days: 7) // Default call
+            self.loadArticles(articleType: "viewed", days: 7) // Default call
         }
     }
     // Any customization for this particular viewController
@@ -43,7 +43,7 @@ class HomeVC: UIViewController {
     }
     
     @objc func newApiCall(_ sender: AnyObject) {
-        loadArticles(days: 7)
+        loadArticles(articleType: "viewed", days: 7)
         self.refreshControl.endRefreshing()
     }
     
@@ -58,23 +58,24 @@ class HomeVC: UIViewController {
     // ** Setup Action sheet for sorting options ** //
     func openSortActionSheet(){
 
-           let optionMenu = UIAlertController(title: nil, message: "Choose a timeline for articles", preferredStyle: .actionSheet)
+           let optionMenu = UIAlertController(title: nil, message: "Select an option to sort", preferredStyle: .actionSheet)
 
-           let onedayAction = UIAlertAction(title: "1 Day", style: .default, handler: { (ACTION :UIAlertAction!)in
-            self.loadArticles(days: 1)
+           let sharedAction = UIAlertAction(title: "Most Shared", style: .default, handler: { (ACTION :UIAlertAction!)in
+            self.loadArticles(articleType: "shared", days: 1)
            })
-           let sevendaysAction = UIAlertAction(title: "7 Days", style: .default, handler: { (ACTION :UIAlertAction!)in
-            self.loadArticles(days: 7)
+           let emailedAction = UIAlertAction(title: "Most Emailed", style: .default, handler: { (ACTION :UIAlertAction!)in
+            self.loadArticles(articleType: "emailed", days: 7)
            })
         
-        let thirtydaysAction = UIAlertAction(title: "30 Days", style: .destructive, handler: { (ACTION :UIAlertAction!)in
-            self.loadArticles(days: 30)
+        let viewedAction = UIAlertAction(title: "Most Viewed", style: .destructive, handler: { (ACTION :UIAlertAction!)in
+            self.loadArticles(articleType: "viewed", days: 30)
            })
+        
                
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-           optionMenu.addAction(onedayAction)
-           optionMenu.addAction(sevendaysAction)
-           optionMenu.addAction(thirtydaysAction)
+           optionMenu.addAction(sharedAction)
+           optionMenu.addAction(emailedAction)
+           optionMenu.addAction(viewedAction)
            optionMenu.addAction(cancelAction)
   
            self.present(optionMenu, animated: true, completion: nil)
@@ -89,10 +90,20 @@ class HomeVC: UIViewController {
     }
     
     // ** API Calls ** //
-    func loadArticles(days: Int){
+    func loadArticles(articleType: String, days: Int){
         activityIndicator.startAnimating()
         // url elements broke 2 main section base url and endpoint anywhere in the specific call it can be changed as base url live / staging etc if assigned
-        url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: days))"
+        switch articleType {
+        case "shared":
+            url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostSharedNewsApi(for: days))"
+        case "emailed":
+            url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostEmailedNewsApi(for: days))"
+        case "viewed":
+            url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: days))"
+        default:
+           break
+        }
+        
         AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
             switch response.result {
                 case .success:

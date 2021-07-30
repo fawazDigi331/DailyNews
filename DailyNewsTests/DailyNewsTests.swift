@@ -31,6 +31,32 @@ class DailyNewsTests: XCTestCase {
                     }
                }
     }
+    
+    func test7DayFeed(){
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 7))"
+            AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
+                switch response.result {
+                    case .success:
+                      XCTAssert(true, "Got 7 Days Feed SuccessFully")
+                    case .failure(let error):
+                        XCTFail("1 Day Feed Fetch Failed!")
+                        print(error.localizedDescription)
+                    }
+               }
+    }
+    
+    func test30DayFeed(){
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 30))"
+            AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
+                switch response.result {
+                    case .success:
+                      XCTAssert(true, "Got 30 Days Feed SuccessFully")
+                    case .failure(let error):
+                        XCTFail("1 Day Feed Fetch Failed!")
+                        print(error.localizedDescription)
+                    }
+               }
+    }
   
 
     func testPerformanceExample() throws {
