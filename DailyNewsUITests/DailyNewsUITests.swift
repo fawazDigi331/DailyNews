@@ -27,9 +27,12 @@ class DailyNewsUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.staticTexts["Most Popular"].tap() // tap the title to check the most popular title appeared
+       
+        
     }
+    
+   
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

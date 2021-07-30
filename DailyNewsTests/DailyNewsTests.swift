@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Alamofire
 @testable import DailyNews
 
 class DailyNewsTests: XCTestCase {
@@ -18,10 +19,19 @@ class DailyNewsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testOneDayFeed(){
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 1))"
+            AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
+                switch response.result {
+                    case .success:
+                      XCTAssert(true, "Got 1 Day Feed SuccessFully")
+                    case .failure(let error):
+                        XCTFail("1 Day Feed Fetch Failed!")
+                        print(error.localizedDescription)
+                    }
+               }
     }
+  
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

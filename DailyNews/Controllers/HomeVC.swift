@@ -21,14 +21,13 @@ class HomeVC: UIViewController {
     }
     let refreshControl = UIRefreshControl()
     var articles: [Article] = []
-    var selectedArticle : [Article] = []
     var media: [Media] = []
+    var url: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
         DispatchQueue.main.async {
             self.customizeUI()
-            self.loadArticles(days: 1) // Default call
+            self.loadArticles(days: 7) // Default call
         }
     }
     // Any customization for this particular viewController
@@ -91,10 +90,9 @@ class HomeVC: UIViewController {
     
     // ** API Calls ** //
     func loadArticles(days: Int){
-     
         activityIndicator.startAnimating()
-        let url =  UrlDirectory.baseUrl + UrlDirectory.getPopularNewsApi(for: days)
-        print(url)
+        // url elements broke 2 main section base url and endpoint anywhere in the specific call it can be changed as base url live / staging etc if assigned
+        url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: days))"
         AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
             switch response.result {
                 case .success:

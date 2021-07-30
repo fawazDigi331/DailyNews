@@ -16,7 +16,6 @@
 		1CA33D7626B187BD008D94E6 /* DailyNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA33D7526B187BD008D94E6 /* DailyNewsTests.swift */; };
 		1CA33D8126B187BD008D94E6 /* DailyNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA33D8026B187BD008D94E6 /* DailyNewsUITests.swift */; };
 		1CA33DB526B18D46008D94E6 /* UrlDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA33DB426B18D46008D94E6 /* UrlDirectory.swift */; };
-		1CA33DBD26B1900E008D94E6 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA33DBC26B1900E008D94E6 /* NewsApi.swift */; };
 		202DD573EFFFFC41F71D289A /* Pods_DailyNews_DailyNewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC8281E5C4A3C01452C693A /* Pods_DailyNews_DailyNewsUITests.framework */; };
 		46413456CA11426EA1EBE280 /* Pods_DailyNewsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA746082ED303AEF1307D13 /* Pods_DailyNewsTests.framework */; };
 		9F06F2C526B2294A00B36ABC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F06F2C426B2294A00B36ABC /* HomeVC.swift */; };
@@ -26,6 +25,7 @@
 		9F06F30826B23E1D00B36ABC /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F06F30726B23E1D00B36ABC /* HomeDetailVC.swift */; };
 		9F06F30E26B2411E00B36ABC /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F06F30D26B2411E00B36ABC /* UIColor+CustomColors.swift */; };
 		9F06F31626B2470900B36ABC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F06F31526B2470900B36ABC /* Constants.swift */; };
+		9F8EE6D726B3C079004CDE15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F8EE6D626B3C079004CDE15 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,6 @@
 		1CA33D8026B187BD008D94E6 /* DailyNewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNewsUITests.swift; sourceTree = "<group>"; };
 		1CA33D8226B187BD008D94E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA33DB426B18D46008D94E6 /* UrlDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlDirectory.swift; sourceTree = "<group>"; };
-		1CA33DBC26B1900E008D94E6 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		1DA9407B784FC890C6EA2D08 /* Pods-DailyNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyNewsTests.debug.xcconfig"; path = "Target Support Files/Pods-DailyNewsTests/Pods-DailyNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA746082ED303AEF1307D13 /* Pods_DailyNewsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyNewsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6999D487BAA28B5EABEBAB /* Pods-DailyNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyNewsTests.release.xcconfig"; path = "Target Support Files/Pods-DailyNewsTests/Pods-DailyNewsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		9F06F30726B23E1D00B36ABC /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		9F06F30D26B2411E00B36ABC /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		9F06F31526B2470900B36ABC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9F8EE6D626B3C079004CDE15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEBC879D106A2337FA17D98B /* Pods-DailyNews-DailyNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyNews-DailyNewsUITests.debug.xcconfig"; path = "Target Support Files/Pods-DailyNews-DailyNewsUITests/Pods-DailyNews-DailyNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE2D32749A61341C054CF5D2 /* Pods_DailyNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41D0AB1D0B85933B0291145 /* Pods-DailyNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyNews.debug.xcconfig"; path = "Target Support Files/Pods-DailyNews/Pods-DailyNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +132,7 @@
 		1CA33D5D26B187BC008D94E6 /* DailyNews */ = {
 			isa = PBXGroup;
 			children = (
+				9F8EE6D626B3C079004CDE15 /* README.md */,
 				1CA33DA126B18908008D94E6 /* Models */,
 				1CA33DA226B18910008D94E6 /* Views */,
 				1CA33DA326B1892A008D94E6 /* Controllers */,
@@ -195,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				1CA33DB426B18D46008D94E6 /* UrlDirectory.swift */,
-				1CA33DBC26B1900E008D94E6 /* NewsApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -342,6 +342,7 @@
 			files = (
 				9F06F2EC26B22D5F00B36ABC /* ArticleCell.xib in Resources */,
 				1CA33D6B26B187BD008D94E6 /* LaunchScreen.storyboard in Resources */,
+				9F8EE6D726B3C079004CDE15 /* README.md in Resources */,
 				1CA33D6826B187BD008D94E6 /* Assets.xcassets in Resources */,
 				1CA33D6626B187BC008D94E6 /* Main.storyboard in Resources */,
 			);
@@ -472,7 +473,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F06F2D726B22B8500B36ABC /* Articles.swift in Sources */,
-				1CA33DBD26B1900E008D94E6 /* NewsApi.swift in Sources */,
 				9F06F30E26B2411E00B36ABC /* UIColor+CustomColors.swift in Sources */,
 				1CA33DB526B18D46008D94E6 /* UrlDirectory.swift in Sources */,
 				9F06F30826B23E1D00B36ABC /* HomeDetailVC.swift in Sources */,
