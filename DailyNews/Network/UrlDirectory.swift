@@ -22,7 +22,7 @@ static let baseUrl = "http://api.nytimes.com/"
     
     // End Point API Call for Popular News
     // - Parameter days: as String
-    static func getPopularNewsApi(for days: Int = 1) -> String {
+    static func getMostViewedApi(for days: Int = 1) -> String {
         let params = "\(UrlDirectory.apiHeader)=\(UrlDirectory.apiKey)"
         let link   = "\(Endpoint.popularNewsApi.rawValue)\(days).json?\(params)"
         

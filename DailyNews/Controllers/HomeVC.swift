@@ -32,7 +32,7 @@ class HomeVC: UIViewController {
     }
     // Any customization for this particular viewController
     func customizeUI(){
-        navigationController?.navigationBar.topItem?.title = newsTitle.popular.rawValue
+        navigationController?.navigationBar.topItem?.title = newsTitle.mostViewed.rawValue // Default call
         activityIndicator.color = UIColor.custom.smartBlue
         activityIndicator.backgroundColor = UIColor.white
         activityIndicator.layer.cornerRadius = 8
@@ -44,6 +44,7 @@ class HomeVC: UIViewController {
     
     @objc func newApiCall(_ sender: AnyObject) {
         loadArticles(articleType: "viewed", days: 7)
+        navigationController?.navigationBar.topItem?.title = newsTitle.mostViewed.rawValue
         self.refreshControl.endRefreshing()
     }
     
@@ -61,14 +62,16 @@ class HomeVC: UIViewController {
            let optionMenu = UIAlertController(title: nil, message: "Select an option to sort", preferredStyle: .actionSheet)
 
            let sharedAction = UIAlertAction(title: "Most Shared", style: .default, handler: { (ACTION :UIAlertAction!)in
-            self.loadArticles(articleType: "shared", days: 1)
+            self.loadArticles(articleType: "shared", days: 7)
+            
            })
            let emailedAction = UIAlertAction(title: "Most Emailed", style: .default, handler: { (ACTION :UIAlertAction!)in
             self.loadArticles(articleType: "emailed", days: 7)
            })
         
         let viewedAction = UIAlertAction(title: "Most Viewed", style: .destructive, handler: { (ACTION :UIAlertAction!)in
-            self.loadArticles(articleType: "viewed", days: 30)
+            self.loadArticles(articleType: "viewed", days: 7)
+        
            })
         
                
@@ -85,10 +88,7 @@ class HomeVC: UIViewController {
     @IBAction func sortBtnAction(_ sender: Any) {
         self.openSortActionSheet()
     }
-    @IBAction func searchBtnTapped(_ sender: Any) {
-       performSegue(withIdentifier: "searchIdfr", sender: self)
-    }
-    
+   
     // ** API Calls ** //
     func loadArticles(articleType: String, days: Int){
         activityIndicator.startAnimating()
@@ -96,10 +96,16 @@ class HomeVC: UIViewController {
         switch articleType {
         case "shared":
             url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostSharedNewsApi(for: days))"
+            // update the title bar
+            self.navigationController?.navigationBar.topItem?.title = newsTitle.mostShared.rawValue
         case "emailed":
             url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostEmailedNewsApi(for: days))"
+            // update the title bar
+            self.navigationController?.navigationBar.topItem?.title = newsTitle.mostEmailed.rawValue
         case "viewed":
-            url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: days))"
+            url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostViewedApi(for: days))"
+            // update the title bar
+            self.navigationController?.navigationBar.topItem?.title = newsTitle.mostViewed.rawValue
         default:
            break
         }

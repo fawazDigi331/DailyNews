@@ -10,12 +10,10 @@ import Foundation
     // App Strings
     public struct Strings {
         
-        // Common strings
-        static let no_internet   = "Please check your internet connection and try again later."
-        static let messageNoData = "No news to display. Please try again later."
-        
         // Home
-        static let homePageTitle = "Most Popular"
+        static let mostViewed = "Most Viewed Articles"
+        static let mostShared = "Most Shared Articles"
+        static let mostEmailed = "Most Emailed Articles"
         
         // Button Titles
         static let readMoreBtnTitle = "Read More..."
@@ -26,7 +24,9 @@ import Foundation
     }
 
 enum newsTitle : String {
-    case popular = "Most Popular"
+    case mostViewed = "Most Viewed Articles"
+    case mostShared = "Most Shared Articles"
+    case mostEmailed = "Most Emailed Articles"
 }
 
 

@@ -20,7 +20,7 @@ class DailyNewsTests: XCTestCase {
     }
 
     func testOneDayFeed(){
-        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 1))"
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostViewedApi(for: 1))"
             AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
                 switch response.result {
                     case .success:
@@ -33,7 +33,7 @@ class DailyNewsTests: XCTestCase {
     }
     
     func test7DayFeed(){
-        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 7))"
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostViewedApi(for: 7))"
             AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
                 switch response.result {
                     case .success:
@@ -46,7 +46,7 @@ class DailyNewsTests: XCTestCase {
     }
     
     func test30DayFeed(){
-        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getPopularNewsApi(for: 30))"
+        let url =  "\(UrlDirectory.baseUrl)\(UrlDirectory.getMostViewedApi(for: 30))"
             AF.request(url).validate().responseDecodable(of: Articles.self) { (response) in
                 switch response.result {
                     case .success:

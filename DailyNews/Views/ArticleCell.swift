@@ -26,7 +26,7 @@ class ArticleCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    // Update the Article to the cell components
     func updateCellResult(news: Article?) {
         if let article = news {
             self.titleLabel.text = article.title

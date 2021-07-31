@@ -44,12 +44,11 @@ class HomeDetailVC: UIViewController {
         }
     }
     var article: Article?
-   // var selectedArticle : [Article] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateTheDisplay()
     }
-    
+    // update the HomeDetailVC components with the passed Article 
     func updateTheDisplay(){
         self.titleLabel.text = article?.title
         self.authorLabel.text = article?.byLine

@@ -14,7 +14,6 @@ struct Articles: Decodable {
   enum CodingKeys: String, CodingKey {
     case count = "num_results"
     case all = "results"
-    
   }
 }
 
